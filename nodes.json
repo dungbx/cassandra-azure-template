@@ -148,9 +148,6 @@
       "properties": {
         "platformFaultDomainCount":"[variables('faultdomainCountMap')[tolower(replace(parameters('location'),' ',''))].MaximumPlatformFaultDomainCount]",
         "platformUpdateDomainCount": 18,
-      },
-      "sku": {
-        "name": "Aligned"
       }
     },
     {
