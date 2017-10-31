@@ -148,6 +148,9 @@
       "properties": {
         "platformFaultDomainCount":"[variables('faultdomainCountMap')[tolower(replace(parameters('location'),' ',''))].MaximumPlatformFaultDomainCount]",
         "platformUpdateDomainCount": 18,
+      },
+      "sku": {
+        "name": "Aligned"
       }
     },
     {
@@ -221,7 +224,10 @@
           "adminPassword": "[parameters('adminPassword')]"
         },
         "storageProfile": {
-          "osDisk": "[parameters('osSettings').osDisk]",
+          "imageReference": "[parameters('osSettings').imageReference]",
+          "osDisk": {
+            "createOption": "FromImage"
+          },
           "dataDisks": [
             {
               "diskSizeGB": "1023",
