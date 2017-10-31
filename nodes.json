@@ -244,30 +244,6 @@
           ]
         }
       }
-    },
-    {
-      "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(parameters('namespace'), 'vm', copyindex(), '/installcassandranode')]",
-      "apiVersion": "2017-03-30",
-      "location": "[parameters('location')]",
-      "copy": {
-        "name": "[concat(parameters('namespace'), 'vmLoop')]",
-        "count": "[parameters('nodeCount')]"
-      },
-      "dependsOn": [
-        "[concat('Microsoft.Compute/virtualMachines/', parameters('namespace'), 'vm', copyindex())]"
-      ],
-      "properties": {
-        "publisher": "Microsoft.OSTCExtensions",
-        "type": "CustomScriptForLinux",
-        "typeHandlerVersion": "1.4",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-          
-        },
-        "protectedSettings": {
-        }
-      }
     }
   ],
   "outputs": {}
