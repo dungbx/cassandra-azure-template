@@ -11,6 +11,9 @@
     "adminUsername": {
       "type": "string"
     },
+    "adminPassword": {
+      "type": "securestring"
+    },
     "nodeCount": {
       "type": "int"
     },
@@ -217,7 +220,8 @@
         },
         "osProfile": {
           "computerName": "[concat(parameters('namespace'), 'vm', copyIndex())]",
-          "adminUsername": "[parameters('adminUsername')]"
+          "adminUsername": "[parameters('adminUsername')]",
+          "adminPassword": "[parameters('adminPassword')]"
         },
         "storageProfile": {
           "imageReference": "[parameters('osSettings').imageReference]",
