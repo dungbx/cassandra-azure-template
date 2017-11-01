@@ -8,6 +8,9 @@
     "uniqueString": {
       "type": "string"
     },
+    "adminUsername": {
+      "type": "string"
+    },
     "nodeCount": {
       "type": "int"
     },
@@ -213,7 +216,8 @@
           "vmSize": "[parameters('vmSize')]"
         },
         "osProfile": {
-          "computerName": "[concat(parameters('namespace'), 'vm', copyIndex())]"
+          "computerName": "[concat(parameters('namespace'), 'vm', copyIndex())]",
+          "adminUsername": "[parameters('adminUsername')]"
         },
         "storageProfile": {
           "imageReference": "[parameters('osSettings').imageReference]",
