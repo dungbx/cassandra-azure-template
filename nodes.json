@@ -8,12 +8,6 @@
     "uniqueString": {
       "type": "string"
     },
-    "adminUsername": {
-      "type": "string"
-    },
-    "adminPublicKey": {
-      "type": "string"
-    },
     "nodeCount": {
       "type": "int"
     },
@@ -219,20 +213,7 @@
           "vmSize": "[parameters('vmSize')]"
         },
         "osProfile": {
-          "computerName": "[concat(parameters('namespace'), 'vm', copyIndex())]",
-          "adminUsername": "[parameters('adminUsername')]",
-          "linuxConfiguration": {
-              "disablePasswordAuthentication": "true",
-              "ssh": {
-                  "publicKeys": [
-                      {
-                          "path": "[concat('/home/', parameters('adminUsername'), '/.ssh/authorized_keys')]",
-                          "keyData": "[parameters('adminPublicKey')]"
-                      }
-                  ]
-              }
-          },
-          "secrets": []
+          "computerName": "[concat(parameters('namespace'), 'vm', copyIndex())]"
         },
         "storageProfile": {
           "imageReference": "[parameters('osSettings').imageReference]",
